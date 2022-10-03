@@ -1,0 +1,47 @@
+<div>
+    <nav class='navbar-hk'>
+        <a  id='navsec' class='navbarsection'>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Home</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/menu" routerLinkActive="active">Menu</a>
+        </a>
+        <a *ngIf="aut._isAdminLoggedIn$ | async as boolean" id='navsec' class='navbarsection'>
+            <a routerLink="/admin-menu" routerLinkActive="active">Admin</a>
+        </a>
+        <a  id='navsec' class='navbarsection'>
+            <a routerLink="/orders" routerLinkActive="active">Orders</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/bookings" routerLinkActive="active">Bookings</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/deals" routerLinkActive="active"> Deals & Promotions</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/gallery" routerLinkActive="active"> Gallery</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/reviews" routerLinkActive="active"> Reviews</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/about" routerLinkActive="active"> About</a>
+        </a>
+        <a id='navsec' class='navbarsection'>
+            <a routerLink="/contact" routerLinkActive="active"> Contact Us</a>
+        </a>
+        <a *ngIf="aut._isLoggedIn$ | async as boolean"  id='navsec' class='navbarsection'>
+            <a routerLink="/mypage" routerLinkActive="active"> My Dashboard</a>
+        </a>
+        <a *ngIf="!(aut._isLoggedIn$ | async) as boolean" id='navsec' class='navbarsection'>
+            <a routerLink="/login" routerLinkActive="active"> Login</a>
+        </a>
+        <a *ngIf="!(aut._isLoggedIn$ | async) as boolean" id='navsec' class='navbarsection'>
+            <a routerLink="/register" routerLinkActive="active"> Register</a>
+        </a>
+        <div class="logo">
+            <img id='logo-img' [src]="imagePath" width="150px" />
+        </div>
+    </nav>
+
+</div>

@@ -1,0 +1,24 @@
+<div class='page-style-hk'>
+    <h1 id="topics-hk">Your Order History</h1>
+    <div class="order-table" *ngIf="aut._isLoggedIn$ | async as boolean; else elseBlock">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Food</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                </tr>
+                <tr *ngFor="let o of orders">
+                    <td>{{ o.name }}</td>
+                    <td>{{ o.phone }}</td>
+                    <td>{{ o.cart }}</td>
+                    <td>${{ o.total }}</td>
+                    <td>{{ o.date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #elseBlock><div class="text-center">You must be logged in to save and view order history.</div></ng-template>
+</div>

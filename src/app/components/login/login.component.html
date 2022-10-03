@@ -1,0 +1,54 @@
+<div>
+    <div class="container mt-5 mb-5 w-100  ">
+        <div class="modal-lg  mx-auto ">
+            <div class="modal-lg-dialog ">
+                <div class="modal-content rounded-5 shadow text-center bg-light bg-opacity-25">
+                    <div class="modal-header  ">
+                        <h2 class="mx-auto my-auto mt-5 mb-4 display-2 ">Sign in</h2>
+                    </div>
+                    <h4 class=" text-danger "> {{errorMessage}} </h4>
+                    <div class="modal-body ">
+                        <form class="row justify-content-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()"  >
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control rounded-4" placeholder='Email Address'
+                                        name='email' value=""
+                                        formControlName="email" 
+                                        
+                                        />
+                                    <label htmlFor="email">Email address</label>
+                                    <div class="form-text text-danger "><!-- {emailError && <p> {emailError}</p>} --></div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control rounded-4" placeholder='Password'
+                                        name='password' value=""
+                                        formControlName="password"
+                                        />
+                                    <label htmlFor="password">Password</label>
+                                    <div class="form-text text-danger"><!-- {passwordError && <p>{passwordError}</p>} --></div>
+                                </div>
+                                <div class="col-9 mx-auto">
+                                    <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary rounded-pill"
+                                        type="submit">Sign
+                                        in</button>
+                                </div>
+                                <div class="w-100"></div>
+                                <small class="text-muted ">By clicking sign in, you agree to the terms of
+                                    use.</small>
+                                <div class="modal-footer mt-4">
+                                    <h4 class="mx-auto my-auto ">Don't Have an Account?</h4>
+                                    <div class="w-100"></div>
+                                    <div class="col-9 mx-auto">
+                                        <a class="w-100 mt-2 btn btn-lg rounded-4 btn-primary border mx-auto mb-5 rounded-pill"
+                                            href="/register" role="button">Sign Up</a>
+                                    </div>
+                                    <div class="w-100"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

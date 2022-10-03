@@ -1,0 +1,39 @@
+<app-admin-navigation></app-admin-navigation>
+<div class="container"> 
+    <div class="col-9 mx-auto mt-5 mb-5">
+
+        <div class="form-floating  col-6 mx-auto">
+            <input type="text" class="form-control rounded-4" placeholder='Search Food' [(ngModel)]="searchValue" />
+            <label htmlFor="id">Search customer name</label>
+        </div>
+    </div>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th style="width:7%" scope="col">#</th>
+        <th style="width:20%" scope="col">email</th>
+        <th scope="col">name</th>
+        <th scope="col">phone</th>
+        <th scope="col">cart</th>
+        <th scope="col">total</th>
+        <th scope="col">date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor=" let o of order; let i = index"  >
+        <!-- <span  *ngIf="searchValue === '' || o.name.toLowerCase().includes(searchValue)">  -->
+            <tr *ngIf="searchValue === '' || o.name.toLowerCase().includes(searchValue.toLowerCase())">
+            <td  >{{i+1}}</td>
+            <td>{{o.email}}</td>
+            <td>{{o.name}}</td>
+            <td>{{o.phone}}</td>
+            <td>{{o.cart}}</td>
+            <td>{{o.total}}</td>
+            <td>{{o.date}}</td>
+            </tr>
+              
+        <!-- </span> -->
+        
+        </tbody>
+  </table>
+</div>
+

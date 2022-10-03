@@ -1,0 +1,22 @@
+<igx-switch [(ngModel)]="singleBranchExpand">Show 1 Question only</igx-switch>
+<article class="sample-wrapper igx-typography" >
+    <igx-accordion #accordion [singleBranchExpand]="singleBranchExpand">
+        <igx-expansion-panel *ngFor="let f of faq">
+            <igx-expansion-panel-header>
+                <igx-expansion-panel-title>
+                    {{f.question}}
+                </igx-expansion-panel-title>
+            </igx-expansion-panel-header>
+            <igx-expansion-panel-body>
+                {{f.answer}}
+            </igx-expansion-panel-body>
+        </igx-expansion-panel>
+    </igx-accordion>
+</article>
+<p>Please feel free to send an email if you have any further questions</p>
+<ul id='dashboard'>
+  <li id='sections'>
+    <a id='email' href="mailto:kalafatzaferhakan@gmail.com">Send Email</a>
+  </li>
+
+</ul>

@@ -1,0 +1,35 @@
+<mat-sidenav-container class="menu-container">
+    <mat-sidenav #sidenav mode="over" position="end">
+        <app-cart></app-cart>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class='page-style-hk'>
+            <h1 id="topics-hk">Menu</h1>
+            <div id="menu-searchbar">
+                <input type="text" [(ngModel)]="searchValue" placeholder="Search for food" />
+            </div>
+            <ng-container *ngFor="let category of categories">
+                <h2>{{category}}</h2>
+                <div class="food-items">
+                    <ng-container *ngFor="let f of adminService.getMenu()">
+                        <div *ngIf="f.category == category && (searchValue === '' || f.food_name.toLowerCase().includes(searchValue))"
+                            class="food-box">
+                            <div class='food-img'>
+                                <img src="https://shielded-depths-40144.herokuapp.com/assets/images/{{f.image}}"
+                                    alt={{f.food_name}} class="img-responsive img-curve" height="auto" width="150px" />
+                            </div>
+                            <div class='food-details'>
+                                <h4><b>{{f.food_name}}</b></h4>
+                                <p class="food-price">${{f.price}}</p>
+                                <p class="food-desc">{{f.description}}</p>
+                                <button class="menu-btn" (click)="addCart(f)">Add to cart</button>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <button class='cart-btn menu-btn' mat-button (click)="sidenav.toggle()" mat-raised-button color="primary"
+            matBadge="{{totalQuantity}}" matBadgePosition="before" matBadgeColor="warn"><mat-icon>shopping_cart</mat-icon><span id='cart-btn-text'>Cart</span></button>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

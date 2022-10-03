@@ -1,0 +1,29 @@
+<div>
+    <h1 id="topics-hk">
+        Join to Get Updates from us!
+    </h1>
+
+    <form class="form-sub" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+        <br />
+        <label>First Name</label>
+        <br />
+        <input formControlName="firstname" placeholder="Your firstname..." type="text" />
+        <div class="error"
+            *ngIf="subscribeForm.get('firstname')?.invalid && (subscribeForm.get('firstname')?.dirty || subscribeForm.get('firstname')?.touched || subscribeForm.get('firstname')?.untouched)">
+            First Name is required</div>
+
+        <br /><br />
+        <label>Email</label>
+        <br />
+        <input formControlName="email" placeholder="Your email address..." type="text" />
+        <div class="error"
+            *ngIf="subscribeForm.get('email')?.invalid && (subscribeForm.get('email')?.dirty || subscribeForm.get('email')?.touched || subscribeForm.get('email')?.untouched)">
+            Email is required</div>
+        <div class="error" *ngIf="subscribeForm.get('email')?.errors?.['email']">Email invalid</div>
+        <br /><br /><br />
+        <button [disabled]="subscribeForm.invalid"> Subscribe</button>
+        <!-- <input type="submit" value="Subscribe" [disabled]="subscribeForm.invalid" id="submit"/> <br /> -->
+        <br /><br />
+        <br /><br />
+    </form>
+</div>

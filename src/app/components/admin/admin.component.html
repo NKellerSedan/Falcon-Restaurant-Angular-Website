@@ -1,0 +1,79 @@
+<app-admin-navigation></app-admin-navigation>
+
+<div>
+  <div class="container mt-5 mb-5  ">
+    <div class="modal-lg  mx-auto    ">
+      <div class="modal-md-dialog  ">
+        <div class="modal-content rounded-5 shadow text-center bg-light bg-opacity-25">
+          <div class="modal-header  ">
+            <h2 class="mx-auto my-auto mt-2 mb-5 display-5 ">Update or Create Food</h2>
+          </div>
+          <div class="modal-body  ">
+            <form class="row justify-content-center " [formGroup]="adminService.getUserForm()" (ngSubmit)="onSubmit()">
+              <div class="col-9 row mb-5">
+
+                <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control rounded-4" placeholder='Food ID' name='food_id' required
+                    value="{{adminService.getSelectedFood().food_id}}" formControlName="food_id" />
+                  <label htmlFor="id">Food ID</label>
+                </div>
+                <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control rounded-4" placeholder='Food Name' name='food_name' required
+                    value="{{adminService.getSelectedFood().food_name}}" formControlName="food_name" />
+                  <label htmlFor="name">Food Name</label>
+                </div>
+                <div class="form-floating mb-3 col-6" [ngSwitch]="adminService.getSelectedFood().price">
+                  <input *ngSwitchCase="0" type="text" class="form-control rounded-4" placeholder='Price' name='price'
+                    value=" " formControlName="price" />
+                  <input *ngSwitchDefault type="text" class="form-control rounded-4" placeholder='Price' name='price'
+                    value="{{adminService.getSelectedFood().price}} " formControlName="price" />
+                  <label htmlFor="price">Price</label>
+                </div>
+
+
+                <div class="form-floating mb-3 col-6">
+                  <input type="text" class="form-control rounded-4" placeholder='Category' name='category'
+                    value="{{adminService.getSelectedFood().category}}" formControlName="category" />
+                  <label htmlFor="category">Category</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control rounded-4" placeholder='Image' name='image'
+                    value="{{adminService.getSelectedFood().image}}" formControlName="image" />
+                  <label htmlFor="image">Image</label>
+                </div>
+                <div class="form-floating mb-3 ">
+                  <textarea style="height: 120px;" class="form-control rounded-4" placeholder='Description'
+                    name='description'
+                    formControlName="description">   {{adminService.getSelectedFood().description}}</textarea>
+                  <label htmlFor="description">Description</label>
+                </div>
+                <div class="col-6 mx-auto">
+                  <!-- [disabled]="adminService.getUserForm().invalid" -->
+                  <button [disabled]="adminService.getUserForm().invalid" (click)="updateFood()"
+                    class="w-100 mb-2 p-3 btn btn rounded-4 btn-warning rounded-pill" type="submit">Update
+                  </button>
+                </div>
+                <div class="col-6 mx-auto">
+
+                  <button [disabled]="adminService.getUserForm().invalid" (click)="createFood()"
+                    class="w-100 mb-2 p-3 btn btn rounded-4 btn-success rounded-pill" type="submit">Create
+                  </button>
+
+
+                </div>
+                <div class="w-100"></div>
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<app-admin-menu> </app-admin-menu>

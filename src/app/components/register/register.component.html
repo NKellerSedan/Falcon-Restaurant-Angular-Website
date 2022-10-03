@@ -1,0 +1,78 @@
+<div>
+    <div class="container mt-5 mb-5 w-100">
+        <div class="modal-lg  mx-auto  ">
+            <div class="modal-lg-dialog  ">
+                <div class="modal-content rounded-5 shadow text-center bg-light bg-opacity-25">
+                    <div class="modal-header  ">
+                        <h2 class="mx-auto my-auto mt-5 mb-4 display-2 ">Sign Up</h2>
+                    </div>
+                    <h4 class=" text-danger ">
+                       {{errorMessage}}
+                    </h4>
+                    <div class="modal-body ">
+                        <form class="row justify-content-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control rounded-4" placeholder='Name' name='name'
+                                        
+                                        formControlName="name" 
+                                        />
+                                    <label htmlFor="name">Name</label>
+                                    <!-- <div class="form-text text-danger">{nameError && <p >{nameError}</p>} </div> -->
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control rounded-4" placeholder='Email Address'
+                                        name='email' value=""
+                                        formControlName="email" 
+                                        
+                                        
+                                        />
+                                    <label htmlFor="email">Email address</label>
+                                    <div class="form-text text-danger">  <p >{{errorEmail}}</p> </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control rounded-4" placeholder='Password'
+                                        name='password' 
+                                        formControlName="password" 
+                                        
+                                        />
+                                    <label htmlFor="password">Password</label>
+                                    <div class="form-text text-danger"> <p >{{errorPassword}}</p></div>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control rounded-4" placeholder='Confirm Password'
+                                        name='cpassword' value=""
+                                        
+                                        formControlName="cpassword" 
+                                        
+                                        />
+                                    <label htmlFor="password">Confirm Password</label>
+                                    <!-- <div class="form-text text-danger">  {cpswdError && <p >{cpswdError}</p>}</div> -->
+                                </div>
+                                <div class="col-9 mx-auto">
+                                    <button [disabled]="signUpForm.invalid" class="w-100 mb-2 p-3 btn btn-lg rounded-4 btn-primary rounded-pill"
+                                        type="submit">Sign
+                                        up</button>
+                                </div>
+                                <div class="w-100"></div>
+                                <small class="text-muted ">By clicking sign up, you agree to the terms of
+                                    use.</small>
+                                <div class="modal-footer mt-4">
+                                    <h3 class="mx-auto my-auto ">Already have an account?</h3>
+                                    <div class="w-100"></div>
+                                    <div class="col-9 mx-auto">
+                                        <a class="w-100 p-3 mt-2 btn btn-lg rounded-4 btn-primary border  mb-5 rounded-pill"
+                                            href="/login" role="button">Sign in</a>
+                                    </div>
+                                    <div class="w-100"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

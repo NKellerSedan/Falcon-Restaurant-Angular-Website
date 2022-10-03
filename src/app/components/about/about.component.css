@@ -1,0 +1,29 @@
+.persons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .person {
+    border-radius: 15px;
+    margin: 0.2%;
+    padding: 1%;
+    background-color: rgb(82, 134, 254);
+  }
+  
+  #name {
+    color: #f0f9ff;
+  }
+  
+  #description {
+    color: #f0f9ff;
+  }
+
+  #pic {
+    height: 210px;
+    width: 210px;
+    border-radius: 15px;
+    margin: 0.2%;
+    padding: 1%;
+  }

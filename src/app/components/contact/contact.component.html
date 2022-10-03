@@ -1,0 +1,44 @@
+<div class="page-style-hk">
+  <div class="t-a">
+    <h1 id="topics-hk">Contact Us</h1>
+    <p><b>Send us your message and we will get back to you as soon as possible</b></p>
+    <hr />
+  </div>
+  <div class="contact-form">
+    <div class="contactrow-form">
+      <div class="col-form">
+        <img id="contact-img" [src]="imagePath" />
+      </div>
+      <div class="col-form">
+        <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+
+          <div class="error"
+            *ngIf="subscribeForm.get('firstname')?.invalid && (subscribeForm.get('firstname')?.dirty || subscribeForm.get('firstname')?.touched || subscribeForm.get('firstname')?.untouched)">
+            First Name is required</div>
+          <input type="text" id="fname" formControlName="firstname" placeholder="Enter first name" />
+
+          <div class="error"
+            *ngIf="subscribeForm.get('lastname')?.invalid && (subscribeForm.get('lastname')?.dirty || subscribeForm.get('lastname')?.touched || subscribeForm.get('lastname')?.untouched)">
+            Last Name is required</div>
+          <input type="text" id="lname" formControlName="lastname" placeholder="Enter last name" />
+
+
+          <div class="error"
+            *ngIf="subscribeForm.get('email')?.invalid && (subscribeForm.get('email')?.dirty || subscribeForm.get('email')?.touched || subscribeForm.get('email')?.untouched)">
+            Email is required</div>
+          <div class="error" *ngIf="subscribeForm.get('email')?.errors?.['email']">Email invalid</div>
+
+          <input type="text" id="email" formControlName="email" placeholder="Enter Email" />
+
+          <div class="error"
+            *ngIf="subscribeForm.get('subject')?.invalid && (subscribeForm.get('subject')?.dirty || subscribeForm.get('subject')?.touched || subscribeForm.get('subject')?.untouched)">
+            Subject field is required</div>
+
+          <textarea id="email-subject" formControlName="subject" placeholder="Write your message"></textarea>
+
+          <button id="submit" [disabled]="subscribeForm.invalid">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

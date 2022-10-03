@@ -1,0 +1,17 @@
+<div class='page-style-hk'>
+    <h1 id="topics-hk">About Us</h1>
+    <div class="center">
+        <p><b>The Development Team</b></p>
+        <br />
+
+        <div class="persons">
+
+            <div class='person' *ngFor="let a of about">
+                <img id='pic' src="https://shielded-depths-40144.herokuapp.com/assets/images/{{a.image}}" />
+                <p id='name'>{{a.name}}</p>
+                <p id='description'>{{a.title}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

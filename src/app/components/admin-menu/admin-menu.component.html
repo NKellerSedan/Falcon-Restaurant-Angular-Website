@@ -1,0 +1,38 @@
+<div class="col-9 mx-auto mt-5">
+
+    <div class="form-floating  col-6 mx-auto">
+        <input type="text" class="form-control rounded-4" placeholder='Search Food' [(ngModel)]="searchValue" />
+        <label htmlFor="id">Search Food</label>
+    </div>
+</div>
+
+
+
+<div class='page-style-hk'>
+    <h1 id="topics-hk">Menu</h1>
+    <ng-container *ngFor="let category of getCategories()">
+        <h2>{{category}}</h2>
+        <div class="food-items">
+            <ng-container *ngFor="let f of adminService.getMenu()">
+                <ng-container *ngIf="searchValue === '' || f.food_name.toLowerCase().includes(searchValue.toLowerCase())">
+                    <div *ngIf="f.category == category" class="food-box">
+
+                        <div class='food-img'>
+                            <img src="https://shielded-depths-40144.herokuapp.com/assets/images/{{f.image}}"
+                                alt={{f.food_name}} class="img-responsive img-curve" height="auto" width="150px" />
+                        </div>
+                        <div class='food-details'>
+                            <h4><b>{{f.food_name}}</b></h4>
+                            <p class="food-price">{{f.price}}</p>
+                            <p class="food-desc">{{f.description}}</p>
+
+                            <button class="btn btn-warning me-2" (click)="editFood(f.food_id)">Edit</button>
+                            <button class="btn btn-danger" (click)="deleteFood(f.food_id)">Delete</button>
+
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>

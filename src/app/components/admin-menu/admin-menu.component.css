@@ -1,0 +1,95 @@
+.menu-nav {
+    text-transform: uppercase;
+}
+  
+#menu-searchbar {
+    text-align: center;
+}
+  
+#menu-searchbar input {
+    padding: 0.5% 25% 0.5% 1%;
+}
+  
+.menu-btn {
+    background-color: #215285;
+    padding: 5px;
+    border: 2px solid black;
+    color: white;
+    text-decoration: none;
+    font-family: Kdam Thmor Pro;
+}
+  
+.menu-btn:hover {
+    background-color: #0b2c4e;
+}
+  
+.counter-action {
+    padding: 8px;
+}
+  
+.food-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-responsive {
+    width: 100%;
+}
+  
+.img-curve {
+    border-radius: 15px;
+}
+  
+.food-box {
+    width: 45%;
+    margin: 0.2%;
+    padding: 1%;
+    float: left;
+    background-color: #efefef;
+    border-radius: 15px;
+}
+  
+.food-img {
+    width: 20%;
+    float: left;
+}
+  
+.food-details {
+    width: 70%;
+    float: left;
+    margin-left: 5%;
+}
+  
+  
+.food-price {
+    font-size: 1.2rem;
+    margin: 2% 0;
+}
+  
+.food-desc {
+    font-size: 0.8rem;
+    color: #3f454e;
+    line-height: 1.2;
+}
+  
+@media only screen and (max-width: 80em) {
+    .food-img {
+        float: none;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logo {
+        float: unset !important;
+        text-align: center;
+    }
+}
+  
+@media only screen and (max-width: 1000px) {
+    .food-box {
+        width: 90%;
+        padding: 2%;
+        margin-bottom: 0.5%;
+    }  
+}

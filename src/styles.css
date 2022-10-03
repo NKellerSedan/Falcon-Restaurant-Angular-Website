@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.page-style-hk {
+    min-height: calc(100vh - 250px);
+    width: 80%;
+    margin: 30px auto;
+  }
+  
+  #topics-hk {
+    text-align: center;
+    margin: 40px 0 40px;
+    text-align: center;
+    font-size: 30px;
+    color: #e77510;
+    text-shadow: 1px 1px 2px #000000;
+    font-family: 'Cherry Swash', cursive;
+    text-decoration: underline;
+  }
+  
+  .active {
+    background-color: #3a3a3a;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  

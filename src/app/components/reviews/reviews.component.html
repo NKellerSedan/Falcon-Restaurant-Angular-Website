@@ -1,0 +1,37 @@
+<h1 id="topics-hk">Reviews</h1>
+<div id="page-style-hk">
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+  Name: <input type="text" name="name" ngModel #name="ngModel" required /><br /><br>
+  <div *ngIf="name.invalid && name.touched">Name is required!</div>
+  Rating: <select [(ngModel)]="selectedValue" name="rating" ngModel #rating="ngModel" required>
+    <option value=null selected hidden>Select Star Rating</option>
+    <option *ngFor="let s of stars" [value]="s.value">{{s.rating}}</option>
+  </select><br /><br>
+  <div *ngIf="rating.invalid && rating.touched">Rating is required!</div>
+  Review: <br /> <textarea class="reviews-textarea" type="text" placeholder='Enter your Review (445 characters max)'
+  maxLength="445" name="review" ngModel #review="ngModel"
+    required></textarea><br />
+  <div *ngIf="review.invalid && review.touched">Review is required!</div> <br />
+  <input type="submit" value="Post Review" [disabled]="myForm.invalid" />
+</form>
+<hr />
+
+<div>
+  <span><b>Search </b></span>
+  <select [(ngModel)]="searchValue" name="rating" ngModel #rating="ngModel" required>
+    <option value="" selected>All Ratings</option>
+    <option *ngFor="let s of stars" [value]="s.value">{{s.rating}}</option>
+  </select><br />
+  <hr />
+  <hr />
+</div>
+
+<div *ngFor="let r of reviews">
+  <div id="review-results-div" *ngIf="searchValue === '' || r.rating.toLowerCase().includes(searchValue)">
+    <p><strong>Name</strong> - {{ r.name }}</p>
+    <p><strong>Rating</strong> - {{ r.rating}} </p>
+    <p><strong>Review</strong> - {{ r.review }}</p>
+    <hr />
+  </div>
+</div>
+</div>

@@ -1,0 +1,60 @@
+<div class='container-info'>
+  <h1 id="topics-hk">Reserve a seat today!</h1>
+  <div class='row-info'>
+    <div class='col-info'>
+      <div>
+        <div>{{error}}</div>
+        <h2 class="cal">Select date</h2>
+        <mat-form-field>
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date"
+            (ngModelChange)="selectedDate($event)" [(ngModel)]="checkDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+      <div class='select-input'>
+        <h2 class="cal">Select time slot</h2>
+        <label>Available Time slot</label> &nbsp; &nbsp;
+        <select #selectedValue [value]="selectedValue" (change)='onInputChange(selectedValue.value)'>
+          <option class="dropdown-item" *ngFor="let p of newslot" [value]="p">{{p}}</option>
+        </select>
+        <p>Selected time: {{selectedValue.value}}</p>
+      </div>
+    </div>
+    <div class='col-info'>
+      <form id="form-info" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <fieldset style="padding: 20px">
+          <legend>Your Info</legend>
+          <input type="hidden" class="form-control" id="date-info" value={date.toDateString()} />
+          <input type="hidden" class="form-control" id="time-info" value={timeSelected} />
+
+          <div class="form-group">
+            <div class="error"
+              *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched || registerForm.get('name')?.untouched)">
+              Name is required</div>
+            <input formControlName="name" class="form-control" id="name-info" placeholder="Enter name" type="text" />
+          </div>
+          <div class="form-group">
+            <div class="error"
+              *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched || registerForm.get('email')?.untouched)">
+              Email is required</div>
+            <div class="error" *ngIf="registerForm.get('email')?.errors?.['email']">Email invalid</div>
+            <input formControlName="email" type="text" class="form-control" id="email-info" placeholder="Enter email" />
+          </div>
+          <div class="form-group">
+            <div class="error"
+              *ngIf="registerForm.get('phoneno')?.invalid && (registerForm.get('phoneno')?.dirty || registerForm.get('phoneno')?.touched || registerForm.get('phoneno')?.untouched)">
+              Phone number is required</div>
+            <input formControlName="phoneno" type="text" class="form-control" id="phoneno-info"
+              placeholder="Phone number" />
+          </div>
+          <br />
+          <button type="submit" class="btn-info" [disabled]="registerForm.invalid">Book now!</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <br /> <br /> <br /> <br />
+</div>

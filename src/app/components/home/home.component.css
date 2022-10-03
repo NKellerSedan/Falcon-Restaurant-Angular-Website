@@ -1,0 +1,90 @@
+/********/
+/** HOME PAGE **/
+/********/
+.homeContent {
+    display: table;
+    padding-left: 5%;
+  }
+  
+  .homeContent2 {
+    width: 45%;
+    font-family: sans-serif;
+    display: table-cell;
+    line-height: 1.6em;
+    padding-left: 25px;
+    vertical-align: middle;
+    text-align: left;
+  }
+  
+  .homeContent3 {
+    width: 55%;
+    display: table-cell;
+    padding-left: 50px;
+  }
+  
+  .homeImg {
+    text-align: center;
+  }
+  
+  #homeLogo {
+    max-width: 500px;
+  }
+  
+  #homeVideo {
+    margin:10%;
+    margin-top: 150px;
+    max-width: 600px;
+    width: auto;
+  }
+  
+  @media only screen and (max-width: 60em) {
+    .homeContent2, .homeContent3 {
+        display: table-row;
+    }
+  
+    #homeLogo {
+        max-width: 85%;
+    }
+  
+    #homeVideo {
+        max-width: 85%;
+    }
+  }
+  
+  #homesections {
+    float: left;
+  }
+  
+  #homesections a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  
+  #homesections a {
+    display: block;
+    color: rgb(222, 5, 5);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  #addressInfo{
+    text-align: center;
+  }
+
+  #home-intro{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+  }
+  
+  #homeimg-div {
+    text-align: center;
+  }
+  
+  .home-img {
+    border-color: #282d32;
+      border-style: groove;
+      border-radius: 7%;
+      width: 400px;
+      height: 450px;
+  }
